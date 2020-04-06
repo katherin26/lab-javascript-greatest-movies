@@ -92,7 +92,6 @@ function dramaMoviesRate(arr){
 //console.log(dramaMoviesRate(movies));//8.32
 
 // Iteration 6: Time Format - Turn duration of the movies from hours to minutes
-
 function turnHoursToMinutes(arr) {
 
   let newMovies = arr.map(movie => {
@@ -100,19 +99,22 @@ function turnHoursToMinutes(arr) {
     let mins = 0;
     
     let hoursMinutes = newObj.duration.split(' ');
+    
     let hours = hoursMinutes[0].replace('h','');
-
-    if(hoursMinutes[1] !== undefined ){
-        mins = hoursMinutes[1].replace('min','');
-         newObj.duration = (hours*60) + Number.parseInt(mins); 
+    
+    if(hoursMinutes[1] !== undefined ) {
+        mins = hoursMinutes[1].replace('min',''); 
     }  
+    newObj.duration = (hours*60) + Number.parseInt(mins);
+
     return newObj;
     
      });
-     return newMovies; 
+
+  return newMovies; 
 }
 
-console.log(turnHoursToMinutes(movies.slice(0,5)));
+//console.log(turnHoursToMinutes(movies.slice(0,5)));
 
 
 //En este ejercicio SPLIT= dividimos '2h 22 min'  y lo convertimos a array asi seria ['2h','22min'] .pero tan bien para ahorrarnos este paso podriamos poner solamente split('h') y eliminamos solo la h . 
